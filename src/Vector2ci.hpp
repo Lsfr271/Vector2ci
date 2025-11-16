@@ -53,20 +53,44 @@ struct Vector2ci {
     public:
         T& operator[](size_t index);
         const T& operator[](size_t index) const;
-        
+        Vector2ci<T>& operator=(const Vector2ci<T>& other);
+        Vector2ci<T>& operator=(Vector2ci<T>&& other);
+
         Vector2ci() : data(nullptr), count(0), capacity(0), typeinfo(deduce_type()) {}
 
-        template<class... Args>
-        Vector2ci(Args&&... args) : data(nullptr), count(0), capacity(sizeof...(args)),
-        typeinfo(deduce_type<T>()) {
-            data = new T[capacity];
-            T temp[] = {(T)args...};
+        Vector2ci(std::initializer_list<T> list) : data(nullptr), count(0),
+        capacity(list.size()), typeinfo(deduce_type())
+        {
+            if (capacity > 0){
+                data = new T[capacity];
 
-            for (size_t i = 0; i < capacity; ++i){
-                data[i] = temp[i];
+                size_t i = 0;
 
-                ++count;
+                for (const auto& elem : list){
+                    data[i++] = elem;
+                }
+
+                count = capacity;
             }
+        }
+
+        Vector2ci(const Vector2ci& other) : data(nullptr), count(other.count),
+        capacity(other.capacity), typeinfo(other.typeinfo) {
+            if (capacity > 0){
+                data = new T[capacity];
+
+                for (size_t i = 0; i < count; ++i){
+                    data[i] = other.data[i];
+                }
+            }
+        }
+
+        Vector2ci(Vector2ci&& other) noexcept : data(nullptr),
+        count(other.count), capacity(other.capacity),
+        typeinfo(other.typeinfo) {
+            other.data = nullptr;
+            other.count = 0;
+            other.capacity = 0;
         }
 
         ~Vector2ci() {
