@@ -51,6 +51,9 @@ struct Vector2ci {
         }
 
     public:
+        T& operator[](size_t index);
+        const T& operator[](size_t index) const;
+        
         Vector2ci() : data(nullptr), count(0), capacity(0), typeinfo(deduce_type()) {}
 
         template<class... Args>
