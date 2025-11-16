@@ -24,8 +24,9 @@ size_t Vector2ci<T>::_capacity() const {
     return capacity;
 }
 
-template <class T> bool Vector2ci<T>::empty() const {
-  return count == 0;
+template <class T>
+bool Vector2ci<T>::empty() const {
+    return count == 0;
 }
 
 template<class T>
