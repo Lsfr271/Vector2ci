@@ -142,3 +142,17 @@ std::ostream& operator<<(std::ostream& os, const Vector2ci<T>& v){
 
     return os;
 }
+
+template<class T>
+T& Vector2ci<T>::operator[](size_t index){
+    assert(index < count);
+
+    return data[index];
+}
+
+template<class T>
+const T& Vector2ci<T>::operator[](size_t index) const {
+    assert(index < count);
+
+    return data[index];
+}
