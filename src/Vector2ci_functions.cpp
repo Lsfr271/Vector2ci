@@ -5,9 +5,13 @@ void Vector2ci<T>::addElement(const T& value){
     if (count >= capacity) {
         size_t newCap = capacity == 0 ? 1 : capacity * 2;
         T* nData = new T[newCap];
-        for (size_t i = 0; i < count; ++i)
+
+        for (size_t i = 0; i < count; ++i){
             nData[i] = data[i];
+        }
+
         delete[] data;
+
         data = nData;
         capacity = newCap;
     }
