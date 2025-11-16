@@ -156,3 +156,45 @@ const T& Vector2ci<T>::operator[](size_t index) const {
 
     return data[index];
 }
+
+template <class T>
+Vector2ci<T>& Vector2ci<T>::operator=(const Vector2ci<T> &other){
+    if (this != &other){
+        delete[] data;
+
+        count = other.count;
+        capacity = other.capacity;
+        typeinfo = other.typeinfo;
+
+        if (capacity > 0){
+            data = new T[capacity];
+
+            for (size_t i = 0; i < count; ++i){
+                data[i] = other.data[i];
+            }
+        }
+        else {
+            data = nullptr;
+        }
+    }
+
+    return *this;
+}
+
+template <class T>
+Vector2ci<T>& Vector2ci<T>::operator=(Vector2ci<T> &&other) {
+    if (this != &other){
+        delete[] data;
+
+        data = other.data;
+        count = other.count;
+        capacity = other.capacity;
+        typeinfo = other.typeinfo;
+
+        other.data = nullptr;
+        other.count = 0;
+        other.capacity = 0;
+    }
+
+    return *this;
+}
