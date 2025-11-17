@@ -96,6 +96,50 @@ const char* Vector2ci<T>::typeToString(Types t) {
     return nullptr;
 }
 
+template<class T>
+void Vector2ci<T>::clear() {
+    delete[] data;
+
+    data = nullptr;
+    count = 0;
+    capacity = 0;
+}
+
+template<class T>
+T& Vector2ci<T>::front() {
+    assert(count > 0); // crash if empty
+
+    return data[0];
+}
+
+template<class T>
+const T& Vector2ci<T>::front() const {
+    assert(count > 0);
+
+    return data[0];
+}
+
+template<class T>
+T& Vector2ci<T>::back() {
+    assert(count > 0);
+
+    return data[count - 1];
+}
+
+template<class T>
+const T& Vector2ci<T>::back() const {
+    assert(count > 0);
+
+    return data[count - 1];
+}
+
+template<class T>
+void Vector2ci<T>::popBack() {
+    assert(count > 0);
+
+    --count;
+}
+
 
 template class Vector2ci<int>;
 template class Vector2ci<double>;
