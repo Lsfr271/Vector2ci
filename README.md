@@ -12,7 +12,7 @@ you can use it.
 
 -2 Install [Vector2ci_functions.cpp](https://github.com/Lsfr271/Vector2ci/blob/main/src/Vector2ci_functions.cpp) or copy its file contents into your directory.
 
--3 Install [Vector2ci_operators.hpp]](https://github.com/Lsfr271/Vector2ci/blob/main/src/Vector2ci_operators.hpp) or copy its file contents into your directory.
+-3 Install [Vector2ci_operators.hpp](https://github.com/Lsfr271/Vector2ci/blob/main/src/Vector2ci_operators.hpp) or copy its file contents into your directory.
 
 - After you have done that, you can include it like this:
 - (INCLUDE ONLY the OPERATOR FILE AND THE MAIN HPP FILE)
