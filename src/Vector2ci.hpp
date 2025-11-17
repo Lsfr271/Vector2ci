@@ -55,6 +55,7 @@ struct Vector2ci {
         const T& operator[](size_t index) const;
         Vector2ci<T>& operator=(const Vector2ci<T>& other);
         Vector2ci<T>& operator=(Vector2ci<T>&& other);
+        Vector2ci<T>& operator=(std::initializer_list<T> list);
 
         Vector2ci() : data(nullptr), count(0), capacity(0), typeinfo(deduce_type()) {}
 
@@ -102,6 +103,13 @@ struct Vector2ci {
         void addElement(const T& value);
         void reserve(size_t newCap);
         void shrink_to_fit();
+        void clear();
+        void popBack();
+
+        T& front();
+        const T& front() const;
+        T& back();
+        const T& back() const;
 
         Types getType() const;
 
