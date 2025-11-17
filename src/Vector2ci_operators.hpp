@@ -198,3 +198,27 @@ Vector2ci<T>& Vector2ci<T>::operator=(Vector2ci<T> &&other) {
 
     return *this;
 }
+
+template<class T>
+Vector2ci<T>& Vector2ci<T>::operator=(std::initializer_list<T> list){
+    delete[] data;
+
+    count = list.size();
+    capacity = list.size();
+    typeinfo = deduce_type();
+
+    if (capacity > 0){
+        data = new T[capacity];
+
+        size_t i = 0;
+
+        for (const auto& elem : list){
+            data[i++] = elem;
+        }
+    }
+    else {
+        data = nullptr;
+    }
+
+    return *this;
+}
