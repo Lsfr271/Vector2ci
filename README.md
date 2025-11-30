@@ -1,5 +1,5 @@
-# Vector2ci
-## **-- v1.0**
+# Vector2ci (FINISHED, NO UPDATES TO BE RELEASED)
+## **-- v1.2**
 
 ## What is Vector2ci?
 - Vector2ci is simply just a project to improve my skills in C++ by creating a dynamic array vector.
