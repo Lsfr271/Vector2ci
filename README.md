@@ -1,4 +1,4 @@
-# Vector2ci (FINISHED, NO UPDATES TO BE RELEASED)
+# Vector2ci (DISCONTINUED)
 ## **-- v1.2**
 
 ## What is Vector2ci?
